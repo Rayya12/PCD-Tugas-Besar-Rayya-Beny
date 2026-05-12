@@ -4,7 +4,7 @@ from PIL import Image
 import numpy as np
 import io
 import base64
-from services.pipline import apply_pipline
+from services.pipline import apply_pipeline
 from schemas import ProcessRequest
 
 router = APIRouter(
@@ -53,14 +53,13 @@ async def process_image(request: ProcessRequest):
     # buka gambar dari btyes dan validasi
     try:
         image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
-        image.verify()
         np_image = np.array(image)
     except Exception as e:
         raise HTTPException(status_code=400, detail="Gambar tidak valid")
     
     # Apply semua operasi via pipline
     try:
-        result_np = apply_pipline(np_image, request.operations)
+        result_np = apply_pipeline(np_image, request.operations)
     except KeyError as e:
         raise HTTPException(status_code=400, detail=f"Operasi tidak dikenali: {e}")
     except Exception as e:
