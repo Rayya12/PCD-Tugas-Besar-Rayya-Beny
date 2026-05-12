@@ -16,7 +16,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(image.router, prefix="/api/image", tags=["image"])
+app.include_router(image.router, tags=["image"])
 
 @app.get("/")
 def read_root():
