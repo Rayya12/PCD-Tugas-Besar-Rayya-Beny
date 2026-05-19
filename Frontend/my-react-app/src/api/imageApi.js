@@ -1,5 +1,5 @@
 // nanti ubah menggunakan .env
-const BASE_URL = "http://localhost:8000/api/image";
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const uploadImage = async (file) => {
     const formData = new FormData();

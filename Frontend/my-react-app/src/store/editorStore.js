@@ -1,7 +1,8 @@
 import {create} from "zustand"
 import { processImage } from "../api/imageApi"
+import { use } from "react";
 
-const useEditorStore = create((set,get)=>({
+export const useEditorStore = create((set,get)=>({
     originalImage : null,
     previewImage : null,
     operations : [],
@@ -29,10 +30,12 @@ const useEditorStore = create((set,get)=>({
         set({previewImage:result, isLoading:false})
     },
 
-    reset : ()=>{
-        originalImage : null
-        previewImage : null
-        operations : []
+    reset : ()=>set({
+        originalImage : null,
+        previewImage : null,
+        operations : []})
     }
 
-}))
+))
+
+export default useEditorStore;
