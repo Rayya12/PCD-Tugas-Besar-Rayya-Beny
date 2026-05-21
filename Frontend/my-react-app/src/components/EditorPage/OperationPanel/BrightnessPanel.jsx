@@ -4,14 +4,17 @@ import useEditorStore from "../../../store/editorStore"
 export default function BrightnessPanel() {
   const [value, setValue] = useState(0);
   const addOperation = useEditorStore(s => s.addOperation);
-  const [errorMessage,setErrorMessage] = useState("")
+  const [errorMessage,setErrorMessage] = useState("");
+  const isLoading = useEditorStore(s=>s.isLoading);
 
   const handleApply = () => {
-    addOperation({
+    if (!isLoading){
+      addOperation({
       type: "brightness",
       params: { value }
     })
-    setValue(0);
+    }
+    
   }
 
   const handleReset = () => setValue(0);
@@ -83,23 +86,17 @@ export default function BrightnessPanel() {
       <div className="flex gap-2">
         <button
           onClick={handleReset}
-          className="flex-1 py-2 rounded-lg text-sm text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white transition-colors"
+          className={`flex-1 py-2 rounded-lg text-sm ${isLoading ?"text-gray-400 bg-gray-800" : "text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white transition-colors"}`}
         >
-          Reset
+          {isLoading?"Loading...":"Reset"}
         </button>
         <button
           onClick={handleApply}
-          className="flex-1 py-2 rounded-lg text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-colors"
+          className={`flex-1 py-2 rounded-lg text-sm font-semibold ${isLoading? "text-white bg-gray-700" :"text-white bg-indigo-600 hover:bg-indigo-500 transition-colors"}`}
         >
-          Apply
+          {isLoading? "Loading..." : "Apply"}
         </button>
       </div>
-
-      {/* Error Message */}
-      <div>
-        
-      </div>
-
     </div>
   )
 }
