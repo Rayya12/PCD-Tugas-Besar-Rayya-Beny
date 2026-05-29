@@ -1,3 +1,4 @@
+from services.operations.apply_contrast import apply_contrast
 from schemas import Operation
 from services.operations.brightness import apply_brightness
 from services.operations.edge_detection import apply_edge_detection
@@ -10,7 +11,8 @@ REGISTRY = {
     "edge_detection": apply_edge_detection,
     "histogram_equalization": apply_histogram_equalization,
     "histogram_specification": apply_histogram_specification,
-    "rotate": apply_rotate
+    "rotate": apply_rotate,
+    "contrast": apply_contrast
 }
 
 

@@ -1,4 +1,5 @@
 import BrightnessPanel from "./OperationPanel/BrightnessPanel"
+import ContrastAdjustPanel from "./OperationPanel/ContrastAjustPanel"
 import EdgeDetectionPanel from "./OperationPanel/EdgeDetectionPanel"
 
 export default function SideBar(){
@@ -7,6 +8,7 @@ export default function SideBar(){
         <h2 className="text-2xl text-white font-bold">Image Operation</h2>
         <BrightnessPanel/>
         <EdgeDetectionPanel/>
+        <ContrastAdjustPanel/>
     </div>
     )
 }
