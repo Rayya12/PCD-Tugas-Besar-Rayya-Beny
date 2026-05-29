@@ -15,17 +15,17 @@ def apply_convolution(image:np.ndarray, kernel:np.ndarray,factor: float) -> np.n
         raise ValueError("Kernel harus berupa matriks 2D")
     
     if len(image.shape) == 2:  # Grayscale
-        return convolve2d(image, kernel) / factor
+        return convolve2d(image, kernel, factor)
     elif len(image.shape) == 3:  # Color
         channels = []
         for i in range(image.shape[2]):
-            convolved_channel = convolve2d(image[:,:,i], kernel) / factor
+            convolved_channel = convolve2d(image[:,:,i], kernel, factor)
             channels.append(convolved_channel)
         return np.stack(channels, axis=2)
     else:
         raise ValueError("Unsupported image shape")
     
-def convolve2d(image: np.ndarray, kernel: np.ndarray) -> np.ndarray:
+def convolve2d(image: np.ndarray, kernel: np.ndarray, factor: float) -> np.ndarray:
     image = image.astype(np.float32)
     kernel = kernel.astype(np.float32)
 
@@ -46,6 +46,11 @@ def convolve2d(image: np.ndarray, kernel: np.ndarray) -> np.ndarray:
     for i in range(H):
         for j in range(W):
             region = padded_image[i:i+kH, j:j+kW]
-            output[i, j] = np.sum(region * kernel)
+            output[i, j] = np.sum(region * kernel) / factor
+            
+    # Clip values to [0, 255] dan konversi ke uint8
+    output = np.clip(output, 0, 255)
+    output = output.astype(np.uint8)
+    print(output)
 
     return output

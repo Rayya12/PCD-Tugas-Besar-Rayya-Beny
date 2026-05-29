@@ -1,35 +1,61 @@
 import useEditorStore from "../../store/editorStore";
 
-function ImagePanel({src,alt,label}){
+function ImagePanel({ src, alt, label }) {
     return (
-        <div>
-                <p className="text-xl text-white font-bold text-center mb-2">{label}</p>
-                <img src={src} alt={alt} />
+        <div className="bg-gray-900 rounded-2xl shadow-xl border border-gray-800 p-5 w-full max-w-4xl">
+            <p className="text-2xl font-semibold text-white mb-4 text-center">
+                {label}
+            </p>
+
+            <div className="flex justify-center overflow-hidden rounded-xl bg-black">
+                <img
+                    src={src}
+                    alt={alt}
+                    className="max-h-[500px] w-auto object-contain rounded-xl transition duration-300 hover:scale-[1.01]"
+                />
+            </div>
         </div>
-    )
+    );
 }
 
-
-export default function Canvas(){
-    const originalImage = useEditorStore(s=>s.originalImage)
-    const previewImage = useEditorStore(s=>s.previewImage);
-
-
-    return (<div className="flex flex-col items-center bg-gray-950  justify-center space-y-8 px-6 w-full">
-        {
-            originalImage ? (
-                <div>
-                    <ImagePanel src={originalImage} alt="original image before transformation" label="Original Image"/>
-                </div>
-            ): <div></div>
-        }
-
-        {previewImage ? (
-            <div>
-                <ImagePanel src={previewImage} alt="image after transformation" label="Image After Transformation"/>
-            </div>) 
-            :<div>Halo</div>
-        }
+function EmptyState({ text }) {
+    return (
+        <div className="flex items-center justify-center border-2 border-dashed border-gray-700 rounded-2xl h-[250px] w-full max-w-4xl bg-gray-900">
+            <p className="text-gray-400 text-lg">{text}</p>
         </div>
-    )
+    );
+}
+
+export default function Canvas() {
+    const originalImage = useEditorStore((s) => s.originalImage);
+    const previewImage = useEditorStore((s) => s.previewImage);
+
+    return (
+        <div className="min-h-screen w-full bg-gray-950 px-6 py-10 overflow-y-auto">
+            <div className="flex flex-col items-center gap-10">
+                
+                {/* Original Image */}
+                {originalImage ? (
+                    <ImagePanel
+                        src={originalImage}
+                        alt="original image before transformation"
+                        label="Original Image"
+                    />
+                ) : (
+                    <EmptyState text="Belum ada gambar original" />
+                )}
+
+                {/* Preview Image */}
+                {previewImage ? (
+                    <ImagePanel
+                        src={previewImage}
+                        alt="image after transformation"
+                        label="Image After Transformation"
+                    />
+                ) : (
+                    <EmptyState text="Preview hasil edit akan muncul di sini" />
+                )}
+            </div>
+        </div>
+    );
 }
