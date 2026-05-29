@@ -4,6 +4,7 @@ import { useState } from "react";
 export default function ConvolutionPanel(){
     const addOperation = useEditorStore(s=>s.addOperation);
     const [kernel,setKernel] = useState([[0,0,0],[0,0,0],[0,0,0]]);
+    const [factor,setFactor] = useState(1);
     const isLoading = useEditorStore(s=>s.isLoading);
     const operations = useEditorStore(s=>s.operations);
     const deleteOperation = useEditorStore(s=>s.deleteOperation);
@@ -24,10 +25,11 @@ export default function ConvolutionPanel(){
             addOperation({
             type : "convolution",
             params : {
-                kernel
-                }
-            });
-        }
+                kernel,
+                factor
+            }
+        });
+    }
     }
 
     return (
@@ -52,7 +54,19 @@ export default function ConvolutionPanel(){
                         ))}
                     </div>
                 ))}
-            </div>     
+            </div> 
+
+            <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-400">Factor</span>
+                <input
+                    type="number"
+                    value={factor}
+                    onChange={(e)=>setFactor(Number(e.target.value))}
+                    step={0.001}
+                    className="w-24 p-1 rounded bg-gray-800 text-white text-center focus:ring focus:ring-violet-400"
+                />
+            </div>
+                
             <div className="flex justify-between space-x-2">
                 <button className={`flex-1 py-2 rounded-lg text-sm ${isLoading ?"text-gray-400 bg-gray-800" : "text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white transition-colors"}`}
                 onClick={handleRestore}>

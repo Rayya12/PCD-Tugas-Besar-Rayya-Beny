@@ -6,6 +6,7 @@ from services.operations.histogram_eq import apply_histogram_equalization
 from services.operations.histogram_spec import apply_histogram_specification
 from services.operations.rotate import apply_rotate
 from services.operations.convolution import apply_convolution
+from services.operations.flip_operation import apply_flip
 
 REGISTRY = {
     "brightness": apply_brightness,
@@ -14,7 +15,8 @@ REGISTRY = {
     "histogram_specification": apply_histogram_specification,
     "rotate": apply_rotate,
     "contrast": apply_contrast,
-    "convolution": apply_convolution
+    "convolution": apply_convolution,
+    "flip": apply_flip
 }
 
 

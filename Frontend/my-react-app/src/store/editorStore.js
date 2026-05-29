@@ -10,9 +10,9 @@ const SINGLE_ONLY_OPS = [
     "histogram_eq",
     "histogram_spec",
     "grayscale",
-    "flip",
     "zoom",
     "saturation",
+    "convolution"
 ]
 
 export const useEditorStore = create((set, get) => ({

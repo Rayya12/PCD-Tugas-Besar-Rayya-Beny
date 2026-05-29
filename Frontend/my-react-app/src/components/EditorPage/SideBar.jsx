@@ -4,6 +4,7 @@ import EdgeDetectionPanel from "./OperationPanel/EdgeDetectionPanel"
 import HistogramEqPanel from "./OperationPanel/HistogramEqPanel"
 import RotatePanel from "./OperationPanel/RotatePanel"
 import ConvolutionPanel from "./OperationPanel/ConvolutionPanel"
+import FlipPanel from "./OperationPanel/FlipPanel"
 
 export default function SideBar(){
     return (
@@ -12,6 +13,7 @@ export default function SideBar(){
         <h2 className="text-2xl text-white font-bold">Image Operation</h2>
         <BrightnessPanel/>
         <ContrastAdjustPanel/>
+        <FlipPanel/>
         <RotatePanel/>
         <EdgeDetectionPanel/>
         <HistogramEqPanel/>
