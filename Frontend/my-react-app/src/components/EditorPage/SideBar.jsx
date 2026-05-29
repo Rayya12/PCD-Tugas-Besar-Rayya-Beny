@@ -3,6 +3,7 @@ import ContrastAdjustPanel from "./OperationPanel/ContrastAjustPanel"
 import EdgeDetectionPanel from "./OperationPanel/EdgeDetectionPanel"
 import HistogramEqPanel from "./OperationPanel/HistogramEqPanel"
 import RotatePanel from "./OperationPanel/RotatePanel"
+import ConvolutionPanel from "./OperationPanel/ConvolutionPanel"
 
 export default function SideBar(){
     return (
@@ -14,6 +15,7 @@ export default function SideBar(){
         <RotatePanel/>
         <EdgeDetectionPanel/>
         <HistogramEqPanel/>
+        <ConvolutionPanel/>
     </div>
     )
 }
