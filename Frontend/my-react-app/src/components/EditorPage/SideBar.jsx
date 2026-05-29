@@ -1,6 +1,7 @@
 import BrightnessPanel from "./OperationPanel/BrightnessPanel"
 import ContrastAdjustPanel from "./OperationPanel/ContrastAjustPanel"
 import EdgeDetectionPanel from "./OperationPanel/EdgeDetectionPanel"
+import HistogramEqPanel from "./OperationPanel/HistogramEqPanel"
 import RotatePanel from "./OperationPanel/RotatePanel"
 
 export default function SideBar(){
@@ -12,7 +13,7 @@ export default function SideBar(){
         <ContrastAdjustPanel/>
         <RotatePanel/>
         <EdgeDetectionPanel/>
-        
+        <HistogramEqPanel/>
     </div>
     )
 }
