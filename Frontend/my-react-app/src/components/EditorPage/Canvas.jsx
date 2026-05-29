@@ -15,7 +15,7 @@ export default function Canvas(){
     const previewImage = useEditorStore(s=>s.previewImage);
 
 
-    return (<div className="flex flex-col items-center bg-gray-950  justify-center space-y-8 px-6 w-full min-h-screen">
+    return (<div className="flex flex-col items-center bg-gray-950  justify-center space-y-8 px-6 w-full">
         {
             originalImage ? (
                 <div>
