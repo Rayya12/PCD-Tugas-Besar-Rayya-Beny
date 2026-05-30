@@ -6,6 +6,7 @@ import RotatePanel from "./OperationPanel/RotatePanel"
 import ConvolutionPanel from "./OperationPanel/ConvolutionPanel"
 import FlipPanel from "./OperationPanel/FlipPanel"
 import HistogramSpecPanel from "./OperationPanel/HistogramSpecPanel"
+import ZoomPanel from "./OperationPanel/ZoomPanel"
 
 export default function SideBar(){
     return (
@@ -16,6 +17,7 @@ export default function SideBar(){
         <ContrastAdjustPanel/>
         <FlipPanel/>
         <RotatePanel/>
+        <ZoomPanel/>
         <EdgeDetectionPanel/>
         <HistogramEqPanel/>
         <HistogramSpecPanel/>

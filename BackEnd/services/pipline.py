@@ -7,6 +7,7 @@ from services.operations.histogram_spec import apply_histogram_specification
 from services.operations.rotate import apply_rotate
 from services.operations.convolution import apply_convolution
 from services.operations.flip_operation import apply_flip
+from services.operations.zoom import apply_zoom
 
 REGISTRY = {
     "brightness": apply_brightness,
@@ -16,7 +17,8 @@ REGISTRY = {
     "rotate": apply_rotate,
     "contrast": apply_contrast,
     "convolution": apply_convolution,
-    "flip": apply_flip
+    "flip": apply_flip,
+    "zoom": apply_zoom,
 }
 
 
