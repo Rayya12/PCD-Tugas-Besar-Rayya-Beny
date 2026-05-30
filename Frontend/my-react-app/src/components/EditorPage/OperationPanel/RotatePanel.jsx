@@ -1,7 +1,7 @@
 import { useState } from "react"
 import useEditorStore from "../../../store/editorStore"
 
-export default function RotatePanel() {
+export default function RotatePanel({ format }) {
   const [angle, setAngle] = useState(0);
   const addOperation = useEditorStore(s => s.addOperation);
   const [errorMessage,setErrorMessage] = useState("");
@@ -11,7 +11,7 @@ export default function RotatePanel() {
     if (!isLoading){
       addOperation({
       type: "rotate",
-      params: { angle }
+      params: { angle, format }
     })
     }
     

@@ -1,7 +1,7 @@
 import useEditorStore from "../../../store/editorStore"
 import { useState } from "react";
 
-export default function ConvolutionPanel(){
+export default function ConvolutionPanel({format}){
     const addOperation = useEditorStore(s=>s.addOperation);
     const [kernel,setKernel] = useState([[0,0,0],[0,0,0],[0,0,0]]);
     const [factor,setFactor] = useState(1);
@@ -26,7 +26,8 @@ export default function ConvolutionPanel(){
             type : "convolution",
             params : {
                 kernel,
-                factor
+                factor,
+                format
             }
         });
     }

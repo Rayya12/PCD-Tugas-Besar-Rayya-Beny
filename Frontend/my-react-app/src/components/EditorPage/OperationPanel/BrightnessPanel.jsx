@@ -11,7 +11,7 @@ export default function BrightnessPanel() {
     if (!isLoading){
       addOperation({
       type: "brightness",
-      params: { value }
+      params: { value, format }
     })
     }
     

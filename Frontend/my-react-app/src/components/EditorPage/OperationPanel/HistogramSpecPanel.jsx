@@ -1,7 +1,7 @@
 import useEditorStore from "../../../store/editorStore"
 import { useState } from "react";
 
-export default function HistogramSpecPanel(){
+export default function HistogramSpecPanel({ format }) {
 
     const addOperation = useEditorStore(s=>s.addOperation);
     const [type, setType] = useState("gaussian");
@@ -11,7 +11,7 @@ export default function HistogramSpecPanel(){
         const hist = generateHistogram(type,params);
         addOperation({
             type : "histogram_specification",
-            params : { histogram: hist }
+            params : { histogram: hist, format }
         })
     }
 

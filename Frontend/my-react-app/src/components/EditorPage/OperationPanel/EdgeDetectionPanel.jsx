@@ -1,7 +1,7 @@
 import useEditorStore from "../../../store/editorStore";
 import { useState } from "react";
 
-export default function EdgeDetectionPanel(){
+export default function EdgeDetectionPanel({format}){
     const addOperation = useEditorStore(s=>s.addOperation);
     const [method,setMethod] = useState("sobel");
     const isLoading = useEditorStore(s=>s.isLoading);
@@ -13,7 +13,8 @@ export default function EdgeDetectionPanel(){
             addOperation({
             type : "edge_detection",
             params : {
-                method
+                method,
+                format
             }
         });
         }

@@ -1,7 +1,7 @@
 import useEditorStore from "../../../store/editorStore"
 import { useState } from "react";
 
-export default function ZoomPanel(){
+export default function ZoomPanel({ format }) {
     const addOperation = useEditorStore(s=>s.addOperation);
     const [scale, setScale] = useState(1);
     const [center,setCenter] = useState(false);
@@ -17,7 +17,8 @@ export default function ZoomPanel(){
                 params : {
                     scale,
                     isCenter: center,
-                    point: anchor
+                    point: anchor,
+                    format
                 }
             })
         }

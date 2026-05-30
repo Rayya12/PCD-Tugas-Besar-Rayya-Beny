@@ -1,7 +1,7 @@
 import { useState } from "react"
 import useEditorStore from "../../../store/editorStore"
 
-export default function ContrastAdjustPanel() {
+export default function ContrastAdjustPanel({format}) {
   const [value, setValue] = useState(0);
   const addOperation = useEditorStore(s => s.addOperation);
   const [errorMessage,setErrorMessage] = useState("");
