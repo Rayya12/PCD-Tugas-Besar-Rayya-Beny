@@ -12,7 +12,8 @@ const SINGLE_ONLY_OPS = [
     "grayscale",
     "zoom",
     "saturation",
-    "convolution"
+    "convolution",
+    "smoothing"
 ]
 
 export const useEditorStore = create((set, get) => ({

@@ -9,6 +9,7 @@ from services.operations.rotate import apply_rotate
 from services.operations.convolution import apply_convolution
 from services.operations.flip_operation import apply_flip
 from services.operations.zoom import apply_zoom
+from services.operations.smoothing import apply_smoothing
 
 REGISTRY = {
     "brightness": apply_brightness,
@@ -21,6 +22,7 @@ REGISTRY = {
     "flip": apply_flip,
     "zoom": apply_zoom,
     "morphological": apply_morphological_operation,
+    "smoothing": apply_smoothing
 }
 
 
