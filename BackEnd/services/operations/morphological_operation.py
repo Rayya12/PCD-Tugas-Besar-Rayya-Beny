@@ -7,6 +7,7 @@ def apply_morphological_operation(
     origin: list = None,
     format: str = "png",
     threshold: int = None
+    
 ) -> np.ndarray:
     se = np.array(se, dtype=np.uint8)
     origin = np.array(origin).tolist() if origin is not None else None

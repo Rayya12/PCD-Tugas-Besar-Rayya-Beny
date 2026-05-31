@@ -11,7 +11,7 @@ export default function ContrastAdjustPanel({format}) {
     if (!isLoading){
       addOperation({
       type: "contrast",
-      params: { value }
+      params: { value, format }
     })
     }
     

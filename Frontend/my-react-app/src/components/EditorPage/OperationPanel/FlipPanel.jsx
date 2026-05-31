@@ -1,7 +1,7 @@
 import useEditorStore from "../../../store/editorStore"
 
 
-export default function FlipPanel(){
+export default function FlipPanel({ format }){
     const addOperation = useEditorStore(s=>s.addOperation);
     const isLoading = useEditorStore(s=>s.isLoading);
 
@@ -15,7 +15,8 @@ export default function FlipPanel(){
                         addOperation({
                             type : "flip",
                             params : {
-                                mode : "horizontal"
+                                mode : "horizontal",
+                                format
                             }
                         })
                     }

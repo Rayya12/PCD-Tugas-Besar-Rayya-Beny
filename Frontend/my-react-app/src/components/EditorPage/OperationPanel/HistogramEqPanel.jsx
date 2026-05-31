@@ -1,13 +1,13 @@
 import useEditorStore from "../../../store/editorStore"
 
-export default function HistogramEqPanel(){
+export default function HistogramEqPanel({ format }){
 
     const addOperation = useEditorStore(s=>s.addOperation);
 
     const handleApply = () => {
         addOperation({
             type : "histogram_equalization",
-            params : {}
+            params : { format }
         })
     }
 
