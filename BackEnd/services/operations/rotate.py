@@ -1,6 +1,6 @@
 import numpy as np
 
-def apply_rotate(image: np.ndarray, angle: float, expand: bool = True) -> np.ndarray:
+def apply_rotate(image: np.ndarray, angle: float, expand: bool = True, format: str = "PNG") -> np.ndarray:
     """
     Rotasi gambar secara manual menggunakan inverse mapping.
 

@@ -1,3 +1,4 @@
+from services.operations.morphological_operation import apply_morphological_operation
 from services.operations.apply_contrast import apply_contrast
 from schemas import Operation
 from services.operations.brightness import apply_brightness
@@ -19,6 +20,7 @@ REGISTRY = {
     "convolution": apply_convolution,
     "flip": apply_flip,
     "zoom": apply_zoom,
+    "morphological": apply_morphological_operation,
 }
 
 

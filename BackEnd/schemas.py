@@ -6,4 +6,5 @@ class Operation(BaseModel):
     
 class ProcessRequest(BaseModel):
     image_base64 : str
+    format : str | None = None
     operations : list[Operation]

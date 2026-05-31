@@ -9,6 +9,7 @@ import HistogramSpecPanel from "./OperationPanel/HistogramSpecPanel"
 import ZoomPanel from "./OperationPanel/ZoomPanel"
 import { useState } from "react"
 import { useFormat } from "../../context/FormatContext"
+import MorphologyPanel from "./OperationPanel/OperationMorphology"
 
 
 export default function SideBar(){
@@ -36,6 +37,7 @@ export default function SideBar(){
         <RotatePanel format={format}/>
         <ZoomPanel format={format}/>
         <EdgeDetectionPanel format={format}/>
+        <MorphologyPanel format={format}/>
         <HistogramEqPanel format={format}/>
         <HistogramSpecPanel format={format}/>
         <ConvolutionPanel format={format}/>

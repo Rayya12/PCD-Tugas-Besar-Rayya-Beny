@@ -2,7 +2,7 @@
 
 import numpy as np
 
-def apply_histogram_equalization(image: np.ndarray) -> np.ndarray:
+def apply_histogram_equalization(image: np.ndarray, format: str = "PNG") -> np.ndarray:
     """
     Histogram Equalization meratakan distribusi intensitas piksel
     agar kontras gambar meningkat.

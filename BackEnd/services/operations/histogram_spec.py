@@ -2,7 +2,7 @@
 
 import numpy as np
 
-def apply_histogram_specification(image: np.ndarray, histogram: list[int]) -> np.ndarray:
+def apply_histogram_specification(image: np.ndarray, histogram: list[int], format: str = "PNG") -> np.ndarray:
     """
     Histogram Specification (Histogram Matching) — menyesuaikan distribusi
     intensitas gambar sumber agar mendekati distribusi target yang diinginkan.

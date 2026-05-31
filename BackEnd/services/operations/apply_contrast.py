@@ -1,6 +1,6 @@
 import numpy as np
 
-def apply_contrast(image: np.ndarray, value: int) -> np.ndarray:
+def apply_contrast(image: np.ndarray, value: int, format: str) -> np.ndarray:
     """
     Adjust contrast of the image.
     

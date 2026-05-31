@@ -1,7 +1,7 @@
 import numpy as np
 from PIL import Image
 
-def apply_zoom(image: np.ndarray, point: tuple, scale: float,isCenter:bool=False) -> np.ndarray:
+def apply_zoom(image: np.ndarray, point: tuple, scale: float,isCenter:bool=False, format: str = "PNG") -> np.ndarray:
     """
     Zoom gambar ke arah suatu titik tertentu.
 

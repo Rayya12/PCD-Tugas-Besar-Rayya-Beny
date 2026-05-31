@@ -1,6 +1,6 @@
 import numpy as np
 
-def apply_brightness(image, value):
+def apply_brightness(image, value, format:str):
     value = max(-255, min(255, value))
 
     # ubah dulu ke signed integer

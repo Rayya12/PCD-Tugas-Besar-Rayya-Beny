@@ -1,5 +1,5 @@
 import numpy as np
-def apply_flip(image: np.ndarray, mode: str) -> np.ndarray:
+def apply_flip(image: np.ndarray, mode: str, format: str = "PNG") -> np.ndarray:
     """
     Flip the image horizontally or vertically.
     

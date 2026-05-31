@@ -67,13 +67,19 @@ async def process_image(request: ProcessRequest):
     
     result_pil = Image.fromarray(result_np.astype("uint8")) 
     buffer = io.BytesIO()
-    result_pil.save(buffer, format="PNG")
+    if request.format:
+        fmt = request.format.upper()
+        if fmt not in ["JPEG", "PNG", "BMP"]:
+            raise HTTPException(status_code=400, detail="Format output tidak didukung")
+    else:
+        fmt = "PNG"
+    result_pil.save(buffer, format=fmt)
     buffer.seek(0)
     
     result_base64 = base64.b64encode(buffer.read()).decode("utf-8")
     
     return JSONResponse({
-        "image_base64": f"data:image/png;base64,{result_base64}"
+        "image_base64": f"data:image/{fmt.lower()};base64,{result_base64}"
     })
     
     

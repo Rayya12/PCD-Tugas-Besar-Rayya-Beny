@@ -1,6 +1,6 @@
 import numpy as np
 
-def apply_convolution(image:np.ndarray, kernel:np.ndarray,factor: float) -> np.ndarray:
+def apply_convolution(image:np.ndarray, kernel:np.ndarray,factor: float,format:str) -> np.ndarray:
     """
     Apply convolution to the image using the given kernel.
     
