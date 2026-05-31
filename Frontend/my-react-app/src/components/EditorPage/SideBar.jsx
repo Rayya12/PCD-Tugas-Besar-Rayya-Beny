@@ -11,7 +11,9 @@ import { useState } from "react"
 import { useFormat } from "../../context/FormatContext"
 import MorphologyPanel from "./OperationPanel/OperationMorphology"
 import SmoothingPanel from "./OperationPanel/SmoothingKernel"
-
+import KmeansSegmentationPanel from "./OperationPanel/KmeansSegmentation"
+import SplitAndMergeSegmentationPanel from "./OperationPanel/SplitAndMergeSegmentation"
+import ColorPanel from "./OperationPanel/ColorPanel"
 
 export default function SideBar(){
 
@@ -37,12 +39,16 @@ export default function SideBar(){
         <FlipPanel format={format}/>
         <RotatePanel format={format}/>
         <ZoomPanel format={format}/>
+        <ColorPanel format={format}/>
         <EdgeDetectionPanel format={format}/>
         <MorphologyPanel format={format}/>
         <HistogramEqPanel format={format}/>
         <HistogramSpecPanel format={format}/>
         <SmoothingPanel format={format}/>
         <ConvolutionPanel format={format}/>
+        <KmeansSegmentationPanel format={format}/>
+        <SplitAndMergeSegmentationPanel format={format}/> 
+
     </div>
     )
 }

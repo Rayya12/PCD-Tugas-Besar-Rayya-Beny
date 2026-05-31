@@ -13,7 +13,9 @@ const SINGLE_ONLY_OPS = [
     "zoom",
     "saturation",
     "convolution",
-    "smoothing"
+    "smoothing",
+    "KMsegmentation",
+    "SAMsegmentation"
 ]
 
 export const useEditorStore = create((set, get) => ({

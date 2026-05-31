@@ -10,6 +10,9 @@ from services.operations.convolution import apply_convolution
 from services.operations.flip_operation import apply_flip
 from services.operations.zoom import apply_zoom
 from services.operations.smoothing import apply_smoothing
+from services.operations.kmeans_image_segmentation import kmeans_segmentation
+from services.operations.split_and_merge_segmentation import split_and_merge_segmentation
+from services.operations.color import apply_color_operation
 
 REGISTRY = {
     "brightness": apply_brightness,
@@ -22,7 +25,10 @@ REGISTRY = {
     "flip": apply_flip,
     "zoom": apply_zoom,
     "morphological": apply_morphological_operation,
-    "smoothing": apply_smoothing
+    "smoothing": apply_smoothing,
+    "KMsegmentation": kmeans_segmentation,
+    "SAMsegmentation": split_and_merge_segmentation,
+    "color_operation": apply_color_operation
 }
 
 

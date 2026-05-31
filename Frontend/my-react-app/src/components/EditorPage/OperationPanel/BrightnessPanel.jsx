@@ -1,11 +1,12 @@
 import { useState } from "react"
 import useEditorStore from "../../../store/editorStore"
 
-export default function BrightnessPanel() {
+export default function BrightnessPanel({format}) {
   const [value, setValue] = useState(0);
   const addOperation = useEditorStore(s => s.addOperation);
   const [errorMessage,setErrorMessage] = useState("");
   const isLoading = useEditorStore(s=>s.isLoading);
+
 
   const handleApply = () => {
     if (!isLoading){
