@@ -4,6 +4,7 @@ import { useRef, useState } from "react"
 import { uploadImage } from "../../api/imageApi"
 import useEditorStore from "../../store/editorStore"
 
+
 export default function UploadPage() {
   const [isDragging, setIsDragging] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -29,7 +30,15 @@ export default function UploadPage() {
       setError(null)
       setIsLoading(true)
       const data = await uploadImage(file)
-      setOriginalImage(data.image_base64)
+
+      const img = new Image()
+
+      img.onload = ()=> {
+        setOriginalImage(data.image_base64,img.width,img.height)
+      }
+      img.src = data.image_base64
+
+      
     } catch (err) {
       setError(err.message)
     } finally {

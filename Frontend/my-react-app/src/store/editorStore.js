@@ -23,11 +23,15 @@ export const useEditorStore = create((set, get) => ({
     previewImage: null,
     operations: [],
     isLoading: false,
+    originalHeight : 0,
+    originalWidth: 0,
 
-    setOriginalImage: (base64) => set({
+    setOriginalImage: (base64,width,height) => set({
         originalImage: base64,
         previewImage: base64,
-        operations: []
+        operations: [],
+        originalWidth : width,
+        originalHeight : height,
     }),
 
     addOperation: async (op) => {

@@ -21,7 +21,7 @@ export default function RotatePanel({ format }) {
 
   return (
     <div className="flex flex-col gap-4 p-4 bg-gray-900 rounded-xl border border-gray-800">
-      <p className="text-sm font-semibold text-white">Rotate</p>
+      <p className="text-sm font-semibold text-white">Rotate (ClockWise)</p>
 
       {/* Value Display */}
       <div className="flex items-center justify-between">
@@ -65,7 +65,7 @@ export default function RotatePanel({ format }) {
 
       {/* Preset buttons */}
       <div className="flex gap-2">
-        {[-100, -50, 0, +50, +100].map((preset) => (
+        {[-180, -90, 0, +90, +180].map((preset) => (
           <button
             key={preset}
             onClick={() => setAngle(preset)}

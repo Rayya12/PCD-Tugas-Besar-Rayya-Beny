@@ -2,7 +2,10 @@ import numpy as np
 
 def apply_edge_detection(image: np.ndarray, method: str = "sobel", format: str = "PNG") -> np.ndarray:
     # Convert ke grayscale dulu (rata-rata channel RGB)
-    gray = np.mean(image, axis=2)  # shape: (H, W)
+    if image.ndim == 3:
+        gray = np.mean(image, axis=2)  # shape: (H, W)
+    else:
+        gray = image
 
     if method == "sobel":
         result = _sobel(gray)
